@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- head -->
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Autoplay usage demo">
+    <meta name="author" content="David Deutsch">
+    <title>
+      Django | SlideShow 
+    </title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'SlideShow/css/docs.theme.min.css' %}">
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="{% static 'SlideShow/owlcarousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'SlideShow/owlcarousel/assets/owl.theme.default.min.css' %}">
+
+    <!-- javascript -->
+    <script src="{% static 'SlideShow/vendors/jquery.min.js' %}"></script>
+    <script src="{% static 'SlideShow/owlcarousel/owl.carousel.js' %}"></script>
+
+    <style>
+      #demos .owl-carousel .item {
+        height : initial !important;
+        background: initial !important;
+        padding: initial !important;
+        position: relative;
+      }
+      #demos .owl-carousel .item p{
+        width: 100%;
+        color: white;
+        position: absolute;
+        bottom: -20px;
+        padding-left: 10px;
+        background-color: dimgrey;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="brand left">
+            <h3>
+              <a href="/OwlCarousel2/">Django and owl.carousel.js</a> 
+            </h3>
+          </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- title -->
+    <section class="title">
+      <div class="row">
+        <div class="large-12 columns">
+          <h1>Articels</h1>
+        </div>
+      </div>
+    </section>
+
+    <!--  Demos -->
+    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel owl-theme">
+            {% for slide in slides %}
+              <div class="item">
+                <h4><img src="{{slide.article.image.url}}" alt=""></h4>
+                <p>{{slide.article.title}}</p>
+              </div>
+            {% endfor %}
+          </div>
+          <a class="button secondary play">Play</a> 
+          <a class="button secondary stop">Stop</a> 
+          
+          <script>
+            $(document).ready(function() {
+              var owl = $('.owl-carousel');
+              owl.owlCarousel({
+                items: 4,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true
+              });
+              $('.play').on('click', function() {
+                owl.trigger('play.owl.autoplay', [1000])
+              })
+              $('.stop').on('click', function() {
+                owl.trigger('stop.owl.autoplay')
+              })
+            })
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="row">
+        <div class="large-12 columns">
+          <h5>
+            <a href="https://github.com/alirezaryahi">Alireza Ryahi Rad</a> 
+            <img src="{% static 'SlideShow/img/github.png' %}" width="30" height="30" alt="">
+          </h5>
+        </div>
+      </div>
+    </footer>
+
+    <!-- vendors -->
+    <script src="{% static 'vendors/highlight.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
+</html>
