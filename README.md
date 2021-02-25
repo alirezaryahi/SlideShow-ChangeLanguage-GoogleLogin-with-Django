@@ -1,1 +1,1 @@
-# SlideShow-with-Django
+# SlideShow-with-Django and Google Login

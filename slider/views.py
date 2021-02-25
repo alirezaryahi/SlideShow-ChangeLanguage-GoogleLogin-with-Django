@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Slider
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -10,3 +11,9 @@ def home(request):
         'slides': slides
     }
     return render(request, 'slideShow.html', context)
+
+
+def log_out(request):
+    logout(request)
+    return redirect(request.GET.get('next'))
+
