@@ -1,1 +1,1 @@
-# SlideShow-with-Django and Google Login
+# SlideShow, Google Login, Change Language with Django
