@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/vazir-font-v16.1.0/Vazir.eot');
+    src: local('Comfortaa Regular'),
+    local('Comfortaa'),
+    url('../fonts/vazir-font-v16.1.0/Vazir.ttf') format('truetype'),
+    url('../fonts/vazir-font-v16.1.0/Vazir.woff') format('woff'),
+    url('../fonts/vazir-font-v16.1.0/Vazir.woff2') format('woff2');
+}
+
+body{
+    direction: rtl;
+    font-family: Vazir;
+    text-align: right;
+}
+
+.owl-carousel.owl-theme.owl-loaded.owl-drag{
+    direction: ltr;
+}
+
+.brand.left{
+    float: right !important;
+}
+
+.brand.right{
+    float: left !important;
+    font-size: 1rem;
+}
+
+.brand.right h3, .brand.right a {
+    font-size: 1rem;
+}
+
+.title h1, .button.secondary, .footer h5 a {
+    font-family: Vazir;
+}
